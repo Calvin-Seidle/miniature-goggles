@@ -1,0 +1,58 @@
+<br>
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1 class="text-center"><%= @employee_report.Report_Name %></h1>
+      </div>
+      <div class="panel-body">
+
+        <strong>Report start date:</strong>
+        <%= @employee_report.Report_Start_Date %><br>
+
+        <strong>Report end date:</strong>
+        <%= @employee_report.Report_End_Date %><br>
+
+        <strong>Employee report type:</strong>
+        <%= @employee_report.employee_report_type %><br><br>
+
+        <%= link_to 'Edit Report', edit_employee_report_path(@employee_report), class: "btn btn-xs btn-warning" %>
+      </div>  
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <%= link_to "Add New Task", new_employee_task_path(:employee_report => @employee_report), class: "btn btn-primary btn-block" %>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <% @employee_report.employee_tasks.each do |task| %>
+  	<div class="col-xs-12 col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4 class="text-center"><%= task.Task_Name %></h4>
+        </div>
+        <div class="panel-body">
+      		<span class="text-primary">Task:</span> <%= task.id %><br>
+      		<span class="text-primary">Report:</span> <%= task.employee_report %><br>
+      		<span class="text-primary">Start:</span> <%= task.Task_Start_Date %><br>
+      		<span class="text-primary">Due:</span> <%= task.Task_Due_Date %><hr>
+          <%= link_to 'Show', task, class: "btn btn-xs btn-info" %>
+        </div>  
+    	</div>
+    </div>	
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+    <hr>
+    <%= link_to 'Back', :back, class: "btn btn-xs btn-danger" %>
+  </div>
+</div>

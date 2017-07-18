@@ -3,9 +3,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 	def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:avatar, :name, :surname, :id_number, :email, :password, :password_confirmation, :remember_me)}
+		devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:id, :name, :surname, :email, :password, :password_confirmation, :remember_me, :employee_user_level_id)}
 		devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:email, :password, :remember_me)}
 		devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:avatar, :email, :password, :password_confirmation, :remember_me, :current_password)}
 	end	
 
+	# def after_sign_in_path_for(resource)
+	#     "/profile"
+	# end
 end

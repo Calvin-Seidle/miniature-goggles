@@ -1,0 +1,33 @@
+
+<p>
+  <strong>Task Name:</strong>
+  <%= @employee_task.Task_Name %>
+</p>
+
+<p>
+  <strong>Task Description:</strong>
+  <%= @employee_task.Task_Description %>
+</p>
+
+<p>
+  <strong>Task Start Date:</strong>
+  <%= @employee_task.Task_Start_Date %>
+</p>
+
+<p>
+  <strong>Task Due Date:</strong>
+  <%= @employee_task.Task_Due_Date %>
+</p>
+
+<p>
+  <strong>Task Status:</strong>
+  <%= @employee_task.Task_Status %>
+</p>
+
+<p>
+  <strong>Employee report:</strong>
+  <%= @employee_task.employee_report %>
+</p>
+
+<%= link_to 'Edit', edit_employee_task_path(@employee_task) %> |
+<%= link_to 'Back', employee_reports_path %>

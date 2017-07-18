@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Task_Name: MyString
+  Task_Start_Date: 2017-07-14
+  Task_End_Date: 2017-07-14
+  employee_report: one
+
+two:
+  Task_Name: MyString
+  Task_Start_Date: 2017-07-14
+  Task_End_Date: 2017-07-14
+  employee_report: two

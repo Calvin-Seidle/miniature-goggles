@@ -1,35 +1,14 @@
-<style> 
-body {
-  background:
-  linear-gradient(
-    rgba(0,0,0, 0.5),
-    rgba(0,0,0, 0.5)), 
-  url('../bg2.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  }
-h1 {
-	color: white;
-	text-transform: uppercase;
-}
-h3 {
-	opacity: 1;
-	color: white;
-}
-</style>
+<% if !user_signed_in? %>
+	<h1>Welcome</h1>
+<% else %>
+	<h1 class="text-center">Hello, <%= current_user.name %> <%= current_user.surname %> </h1>
+<% end %>	
+<hr>
 
-<div class="home col-xs-12 col-md-12">
-	<h1 class="text-center">Welcome</h1>
-	<% if user_signed_in? %>
-		<h3 class="text-center"><%= current_user.name %> <%= current_user.surname %></h3>
-		<% if @user.avatar? %>
-			<center><%= image_tag @user.avatar.url(:medium), class: "avatar img-responsive" %></center>
-		<% else %>
-			<center><img src="../avatar.png" alt="No Avatar" class="avatar img-responsive"></center>
-		<% end %>	
-	<% else %>
-		<h3 class="text-center">Please <%= link_to 'Login', new_user_session_url %> or <%= link_to 'Sign Up', new_user_registration_url %> to continue</h3>
-	<% end %>
-</div>
+<% if !user_signed_in? %>
+	<h4 class="text-center">Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to continue.</h4>
+<% else %>
+	<h4>Finished with your reports? <%= link_to "Log Out", destroy_user_session_path, method: :delete %></h4>
+	<%= current_user.employee_user_level_id %>	
+<% end %>
+

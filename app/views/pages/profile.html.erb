@@ -1,0 +1,43 @@
+<div class="row">
+	<h1><%= current_user.name %> <%= current_user.surname %>'s profile</h1>
+	<hr>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2>information</h2>
+		</div>
+
+		<div class="panel-body">
+			Times signed in: <%= current_user.sign_in_count %>
+		</div> 
+	</div>
+  </div>
+
+  <div class="col-xs-12 col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2>Reports</h2>
+		</div>
+
+		<div class="panel-body">
+			Number of Reports: <%= @employee_reports.count %>
+			<%= link_to "Create Report", new_employee_report_path %>
+		</div> 
+	</div>
+  </div>	
+
+  <div class="col-xs-12 col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2>New Tasks</h2>
+		</div>
+
+		<div class="panel-body">
+			Number of Tasks: <%= @employee_tasks.count %>
+		</div>
+	</div>
+  </div>
+</div>

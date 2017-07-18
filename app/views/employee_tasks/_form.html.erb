@@ -1,0 +1,30 @@
+<%= simple_form_for(@employee_task) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="col-xs-12 col-md-12">
+      <%= f.input :Task_Name %>
+    </div>
+    <div class="col-xs-12 col-md-12">  
+      <%= f.input :Task_Description %>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-2">  
+      <%= f.input :Task_Start_Date %>
+    </div>
+    <div class="col-xs-12 col-md-4">  
+      <%= f.input :Task_Due_Date %>
+    </div>  
+    <div class="col-xs-12 col-md-12">
+      <%= f.input :Task_Status, as: :boolean, checked_value: 1, unchecked_value: 2, label: "Complete" %>
+    </div>
+      <!-- <span><%= f.association :employee_report %></span> -->
+    <%= f.hidden_field :employee_report_id, :value => params[:employee_report] %>
+  </div>
+  <div class="row">
+  <div class="col-xs-12 col-md-12">
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  </div>
+  </div><br> 
+<% end %>

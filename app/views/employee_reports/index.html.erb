@@ -1,0 +1,34 @@
+
+<h1>Employee Reports</h1><hr>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Report name</th>
+      <th>Report start date</th>
+      <th>Report end date</th>
+      <th>Employee report type</th>
+      <th>Created</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employee_reports.each do |employee_report| %>
+      <tr>
+        <td><%= link_to employee_report.Report_Name, employee_report %></td>
+        <td><%= employee_report.Report_Start_Date %></td>
+        <td><%= employee_report.Report_End_Date %></td>
+        <td><%= employee_report.employee_report_type %></td>
+        <td><%= employee_report.created_at %></td>
+        <!-- <td><%= link_to 'Show', employee_report %></td> -->
+        <td><%= link_to 'Edit Report', edit_employee_report_path(employee_report), class: "btn btn-xs btn-warning" %></td>
+        <td><%= link_to 'Destroy Report', employee_report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<%= link_to 'New Employee Report', new_employee_report_path %>

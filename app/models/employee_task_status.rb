@@ -1,0 +1,2 @@
+class EmployeeTaskStatus < ApplicationRecord
+end

@@ -1,44 +1,25 @@
-<style>
-body {
-  background:
-  linear-gradient(
-    rgba(0,0,0, 0.5),
-    rgba(0,0,0, 0.5)), 
-  url('../bg2.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  }
-</style>
+<div class="panel panel-body">
+<h2>Sign up</h2>
+<hr>
 
-<br>
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2 class="text-center">Sign up</h2>
-    </div>
-    <div class="panel-body">  
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email" %>
-          <%= f.input :id_number, required: true, label: false, placeholder: "Identity Number" %>
-          <%= f.input :name, required: true, label: false, placeholder: "Name" %>
-          <%= f.input :surname, required: true, label: false, placeholder: "Surname" %>
-          <%= f.input :avatar, as: :file %>
-          <%= f.input :password, required: true, label: false, placeholder: "Password (6 Character Minimum)" %>
-          <%= f.input :password_confirmation, required: true, label: false, placeholder: "Password Confirmation" %>
-        </div><br>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
-        </div>
-      <% end %>
-      <br>
-      <%= render "devise/shared/links" %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :id, required: true, autofocus: true, label: "Identity Number" %>
+    <%= f.input :email, required: true %>
+    
+    <%= f.input :name, required: true %>
+    <%= f.input :surname, required: true %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
+    <%= f.hidden_field :employee_user_level_id, :value => 1 %>
   </div>
-</div>  
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+  </div>
+<% end %>
+<br>
+<%= render "devise/shared/links" %>
+</div>

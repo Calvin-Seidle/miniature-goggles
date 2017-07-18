@@ -14,38 +14,27 @@
  *= require_self
  */
 
-body {  
-  padding-top: 65px;
-  padding-bottom: 65px;
-  background-color: #808080;
+body {
+	/*padding-top: 70px;*/
+	padding-bottom: 70px;
 }
-
-.panel {
-	box-shadow: 10px 10px 5px #808080;
-} 
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #000000;
+}
+h3, h4, h5, h6 {
   text-transform: uppercase;
   text-shadow: 2px 2px 4px #000000;
 }
 
-.avatar {
-	border-radius: 15px;
-}
-.avatar-mini {
-	border-radius: 50%;
-	height: 45px;
-	width: 45px;
+
+.panel, table, .alert {
+  box-shadow: 3px 3px 5px 6px #ccc !important;
+} 
+.btn {
+  box-shadow: 5px 5px 5px #888888;
 }
 
-.logo {
-	height: 25px;
-	width: 100px;
-}
 
-/*.home {
-	padding: 10%;
-	line-height: 300px;
-    height: 300px;
-    text-align: center;
-}*/
+

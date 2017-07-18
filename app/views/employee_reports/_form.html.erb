@@ -1,0 +1,24 @@
+<%= simple_form_for(@employee_report) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs row">
+    <div class="col-xs-12 col-md-12">
+      <%= f.input :Report_Name %>
+    </div>  
+    <div class="col-xs-12 col-md-12">
+      <%= f.association :employee_report_type %>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-2">  
+      <%= f.input :Report_Start_Date %>
+    </div>
+    <div class="col-xs-12 col-md-4">  
+      <%= f.input :Report_End_Date %>
+    </div>  
+  </div><hr>
+
+  <div class="form-actions row">
+    <div class="col-xs-12 col-md-12">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>  
+  </div><br>
+<% end %>

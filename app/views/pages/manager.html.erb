@@ -1,0 +1,32 @@
+<h1>Role: <%= current_user.employee_user_level %></h1>
+<hr>
+Access the <%= link_to 'Admin Panel', '/admin' %> to make changes
+<hr>
+
+<h1>Employee Reports</h1><hr>
+
+<table class="table table-striped tabel-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Report name</th>
+      <th>Report start date</th>
+      <th>Report end date</th>
+      <th>Employee report type</th>
+      <th>Created</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employee_reports.each do |report| %>
+      <tr>
+      	<td><%= report.user.name %> <%= report.user.surname %></td>
+        <td><%= link_to report.Report_Name, report %></td>
+        <td><%= report.Report_Start_Date %></td>
+        <td><%= report.Report_End_Date %></td>
+        <td><%= report.employee_report_type %></td>
+        <td><%= report.created_at.strftime("%d %B %Y at %I:%M%p") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
